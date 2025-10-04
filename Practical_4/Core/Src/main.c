@@ -34,9 +34,15 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 // TODO: Add values for below variables
-#define NS        // Number of samples in LUT
-#define TIM2CLK   // STM Clock frequency: Hint You might want to check the ioc file
-#define F_SIGNAL  	// Frequency of output analog signal
+#define NS 128        // Number of samples in LUT
+#define TIM2CLK 16000000  // STM Clock frequency: Hint You might want to check the ioc file
+#define F_SIGNAL 1000  // Frequency of output analog signal
+// Fsignal reasoning: 
+// 1. Nyquist Theorem: F_SIGNAL must be < TIM2CLK / (2 * NS) - for this prac, the limit is 62500
+// 2. Timer resolution: Each sample needs at least 1 timer tick
+// 3. Audio quality: Higher frequencies need more samples
+// 4. Recommended F_SIGNAL range: 100 Hz < F_SIGNAL < 10kHz
+// 5. Chosen Value: 1000 Hz (good for testing, is within limits, and low enough to be audible)'
 
 /* USER CODE END PD */
 
@@ -118,7 +124,7 @@ uint32_t Drum_LUT[128] = {
 
 
 // TODO: Equation to calculate TIM2_Ticks
-uint32_t TIM2_Ticks = 0; // How often to write new LUT value
+uint32_t TIM2_Ticks = TIM2CLK / (F_SIGNAL * NS); // How often to write new LUT value
 uint32_t DestAddress = (uint32_t) &(TIM3->CCR3); // Write LUT TO TIM3->CCR3 to modify PWM duty cycle
 
 
