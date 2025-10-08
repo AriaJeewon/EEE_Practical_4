@@ -1,3 +1,9 @@
+/*
+1. Link: https://github.com/AriaJeewon/EEE_Practical_4.git
+2. Group Number: 4
+3. Members: THLITU003 JWNARI001
+*/
+
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
