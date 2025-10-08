@@ -1,8 +1,8 @@
-import numpy as np
+pythimport numpy as np
 import matplotlib.pyplot as plt
 
 # Parameters
-N = 128  # number of samples
+N = 1000  # number of samples
 max_val = 4095  # 12-bit resolution
 
 # Sine wave
