@@ -15,7 +15,7 @@ def process_wav_file(filename, target_samples=128):
         with wave.open(filename, 'rb') as wav_file:
             # Get audio parameters
             frames = wav_file.getnframes()
-            sample_rate = wav_file.getframerate()
+            sample_rate = wav_file.getframerate() // 44.1kHz
             channels = wav_file.getnchannels()
             sample_width = wav_file.getsampwidth()
             
@@ -105,7 +105,6 @@ for wav_file in wav_files:
         luts[wav_file.replace('.wav', '')] = lut
 
 print("\n=== Generated LUTs ===\n")
-print("// Copy these arrays into your main.c file\n")
 
 for name, lut in luts.items():
     to_c_array(f"{name.capitalize()}_LUT", lut)
@@ -127,4 +126,3 @@ if luts:
     plt.show()
 
 print("All audio LUTs generated successfully!")
-print("Copy the arrays above into your main.c file")
