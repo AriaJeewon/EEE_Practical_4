@@ -25,7 +25,6 @@ def to_c_array(name, data):
     print("};\n")
 
 print("// Basic Waveform LUTs for Task 1 Part 1")
-print("// Copy these arrays into your main.c file\n")
 
 to_c_array("Sin_LUT", sine)
 to_c_array("Saw_LUT", saw)
@@ -57,4 +56,3 @@ plt.tight_layout()
 plt.show()
 
 print(f"\nAll LUTs generated with {N} samples, range 0-{max_val}")
-print("Copy the arrays above into your main.c file")
