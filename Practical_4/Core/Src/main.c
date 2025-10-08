@@ -40,6 +40,11 @@
 #define NS 1000     // Number of samples in LUT
 #define TIM2CLK  16000000 // STM Clock frequency: Hint You might want to check the ioc file
 #define F_SIGNAL 1	// Frequency of output analog signal
+// F_SIGNAL Reasonings:
+// 1. Using a frequency of 1Hz allowed the period to be 1 second for 1 full cycle of the waveform
+// 2. Easy to verify the waveform cycles on the oscilloscope
+// 3. The low frequency makes debugging easier
+
 #define DEBOUNCE_DELAY 50  // milliseconds
 #define NUM_WAVEFORMS 6
 
