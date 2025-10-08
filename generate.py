@@ -4,7 +4,7 @@ from scipy.io import wavfile
 import os
 
 # Configuration
-TOTAL_SAMPLES = 20000
+TOTAL_SAMPLES = 6000
 NUM_WAVEFORMS = 6  # 3 basic waveforms + 3 audio files
 SAMPLES_PER_WAVEFORM = TOTAL_SAMPLES // NUM_WAVEFORMS  # 3333 samples each
 RESOLUTION = 4095  # 12-bit DAC
